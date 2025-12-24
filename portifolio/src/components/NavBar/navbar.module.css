@@ -1,0 +1,85 @@
+.wrapper {
+  width: 100%;
+  background: #f2f0ee;
+}
+
+.nav {
+  height: 64px;
+  padding: 0 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Esquerda = dots + menu juntos */
+.leftGroup {
+  display: flex;
+  align-items: center;
+  gap: 100px; /* distância entre dots e menu */
+}
+
+/* bolinhas */
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.dot {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  border-radius: 999px;
+  background: #2A2C33;
+}
+
+/* menu perto do dot */
+.center {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  font-family: "Alata", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-weight: 400;
+  font-size: 18px;
+  color: #2A2C33;
+  text-decoration: none;
+
+  display: inline-block;              /* necessário pro transform funcionar bem */
+  transition: transform 160ms ease, 
+              color 160ms ease;
+  transform-origin: center;
+}
+
+.link:hover {
+  transform: scale(1.12);             /* aumenta a “letra” */
+}
+
+/* Direita */
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.langBtn {
+  font-family: "Alata", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-size: 14px;
+  background: transparent;
+  border: none;
+  color: #2A2C33;
+  cursor: pointer;
+}
+
+/* Risca preta inferior */
+.bottomLine {
+  height: 2px;
+  background: #2A2C33;
+  opacity: 0.9;
+}

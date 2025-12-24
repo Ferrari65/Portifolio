@@ -1,0 +1,19 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* seu fundo (pode trocar depois) */
+body {
+  background: #F0EFED; 
+}
+
+/* MUITO IMPORTANTE: tira o "limite" do template */
+#root {
+  width: 100%;
+}
