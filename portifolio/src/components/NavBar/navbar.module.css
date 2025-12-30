@@ -12,14 +12,12 @@
   justify-content: space-between;
 }
 
-/* Esquerda = dots + menu juntos */
 .leftGroup {
   display: flex;
   align-items: center;
-  gap: 100px; /* distância entre dots e menu */
+  gap: 100px;
 }
 
-/* bolinhas */
 .dots {
   display: flex;
   align-items: center;
@@ -34,13 +32,11 @@
   background: #2A2C33;
 }
 
-/* menu perto do dot */
 .center {
   list-style: none;
   display: flex;
   align-items: center;
   gap: 28px;
-
   margin: 0;
   padding: 0;
 }
@@ -52,32 +48,141 @@
   color: #2A2C33;
   text-decoration: none;
 
-  display: inline-block;              /* necessário pro transform funcionar bem */
-  transition: transform 160ms ease, 
-              color 160ms ease;
+  display: inline-block;
+  transition: transform 160ms ease, color 160ms ease;
   transform-origin: center;
 }
 
 .link:hover {
-  transform: scale(1.12);             /* aumenta a “letra” */
+  transform: scale(1.12);
 }
 
-/* Direita */
 .right {
+  position: relative;
   display: flex;
   align-items: center;
 }
 
+
 .langBtn {
-  font-family: "Alata", system-ui, -apple-system, Segoe UI, Roboto, Arial;
-  font-size: 14px;
-  background: transparent;
-  border: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+
   color: #2A2C33;
+  background: #f7f6f4;
+
+  border: 2px solid #2A2C33;
+  border-radius: 0;
+
+  padding: 8px 10px;
   cursor: pointer;
+
+  box-shadow: 3px 3px 0 #2A2C33;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  transition: transform 120ms steps(2, end), box-shadow 120ms steps(2, end);
 }
 
-/* Risca preta inferior */
+.langBtn::after {
+  content: "▾";
+  font-size: 12px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.langBtn:hover {
+  transform: translateY(-1px);
+}
+
+.langBtn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #2A2C33;
+}
+
+.langBtnOpen::after {
+  content: "▴";
+}
+
+.langBtn:focus-visible {
+  outline: 3px solid rgba(42, 44, 51, 0.35);
+  outline-offset: 3px;
+}
+
+.langMenu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+
+  background: #f7f6f4;
+  border: 2px solid #2A2C33;
+  border-radius: 0;
+
+  min-width: 120px;
+  padding: 6px;
+
+  box-shadow: 4px 4px 0 #2A2C33;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  transform-origin: top right;
+  animation: popRetro 120ms steps(2, end);
+  z-index: 50;
+}
+
+.langMenu::before {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #f7f6f4;
+  background: #2A2C33;
+  padding: 6px 8px;
+  margin: -6px -6px 6px -6px;
+}
+
+@keyframes popRetro {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.langItem {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+
+  text-align: left;
+  background: transparent;
+
+  border: 2px solid transparent;
+  border-radius: 0;
+
+  color: #2A2C33;
+  cursor: pointer;
+
+  padding: 8px 8px;
+
+  transition: transform 120ms steps(2, end), background 120ms steps(2, end), border-color 120ms steps(2, end);
+}
+
+.langItem:hover {
+  background: rgba(42, 44, 51, 0.08);
+  border-color: #2A2C33;
+  transform: translateX(2px);
+}
+
+/* marca o idioma atual */
+.langItemActive {
+  background: rgba(42, 44, 51, 0.10);
+  border-color: #2A2C33;
+}
+
 .bottomLine {
   height: 2px;
   background: #2A2C33;
